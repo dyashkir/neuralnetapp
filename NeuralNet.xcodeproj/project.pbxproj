@@ -13,6 +13,9 @@
 		E72A7BF31DFA664F0041731D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E72A7BF21DFA664F0041731D /* Assets.xcassets */; };
 		E72A7BF61DFA664F0041731D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E72A7BF41DFA664F0041731D /* LaunchScreen.storyboard */; };
 		E72A7C011DFA664F0041731D /* NeuralNetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72A7C001DFA664F0041731D /* NeuralNetTests.swift */; };
+		E72A7C141DFA66DD0041731D /* Surge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E72A7C111DFA667F0041731D /* Surge.framework */; };
+		E72A7C161DFA67E20041731D /* NeuralNetScratchPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72A7C151DFA67E20041731D /* NeuralNetScratchPad.swift */; };
+		E72A7C171DFA67E20041731D /* NeuralNetScratchPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72A7C151DFA67E20041731D /* NeuralNetScratchPad.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -22,6 +25,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = E72A7BE71DFA664F0041731D;
 			remoteInfo = NeuralNet;
+		};
+		E72A7C101DFA667F0041731D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E72A7C0B1DFA667E0041731D /* Surge.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F8A1E1AA19917A79009735E2;
+			remoteInfo = Surge;
+		};
+		E72A7C121DFA667F0041731D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E72A7C0B1DFA667E0041731D /* Surge.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F84A6AAE19A9A72F007B53E1;
+			remoteInfo = SurgeTests;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -36,6 +53,8 @@
 		E72A7BFC1DFA664F0041731D /* NeuralNetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NeuralNetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E72A7C001DFA664F0041731D /* NeuralNetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeuralNetTests.swift; sourceTree = "<group>"; };
 		E72A7C021DFA664F0041731D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E72A7C0B1DFA667E0041731D /* Surge.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Surge.xcodeproj; path = Surge/Surge.xcodeproj; sourceTree = "<group>"; };
+		E72A7C151DFA67E20041731D /* NeuralNetScratchPad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeuralNetScratchPad.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E72A7C141DFA66DD0041731D /* Surge.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +82,7 @@
 				E72A7BEA1DFA664F0041731D /* NeuralNet */,
 				E72A7BFF1DFA664F0041731D /* NeuralNetTests */,
 				E72A7BE91DFA664F0041731D /* Products */,
+				E72A7C0B1DFA667E0041731D /* Surge.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -83,6 +104,7 @@
 				E72A7BF21DFA664F0041731D /* Assets.xcassets */,
 				E72A7BF41DFA664F0041731D /* LaunchScreen.storyboard */,
 				E72A7BF71DFA664F0041731D /* Info.plist */,
+				E72A7C151DFA67E20041731D /* NeuralNetScratchPad.swift */,
 			);
 			path = NeuralNet;
 			sourceTree = "<group>";
@@ -94,6 +116,15 @@
 				E72A7C021DFA664F0041731D /* Info.plist */,
 			);
 			path = NeuralNetTests;
+			sourceTree = "<group>";
+		};
+		E72A7C0C1DFA667E0041731D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E72A7C111DFA667F0041731D /* Surge.framework */,
+				E72A7C131DFA667F0041731D /* SurgeTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,6 +199,12 @@
 			mainGroup = E72A7BDF1DFA664F0041731D;
 			productRefGroup = E72A7BE91DFA664F0041731D /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = E72A7C0C1DFA667E0041731D /* Products */;
+					ProjectRef = E72A7C0B1DFA667E0041731D /* Surge.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				E72A7BE71DFA664F0041731D /* NeuralNet */,
@@ -175,6 +212,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		E72A7C111DFA667F0041731D /* Surge.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Surge.framework;
+			remoteRef = E72A7C101DFA667F0041731D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E72A7C131DFA667F0041731D /* SurgeTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SurgeTests.xctest;
+			remoteRef = E72A7C121DFA667F0041731D /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		E72A7BE61DFA664F0041731D /* Resources */ = {
@@ -201,6 +255,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E72A7C161DFA67E20041731D /* NeuralNetScratchPad.swift in Sources */,
 				E72A7BEE1DFA664F0041731D /* ViewController.swift in Sources */,
 				E72A7BEC1DFA664F0041731D /* AppDelegate.swift in Sources */,
 			);
@@ -211,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E72A7C011DFA664F0041731D /* NeuralNetTests.swift in Sources */,
+				E72A7C171DFA67E20041731D /* NeuralNetScratchPad.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,6 +466,7 @@
 				E72A7C071DFA664F0041731D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E72A7C081DFA664F0041731D /* Build configuration list for PBXNativeTarget "NeuralNetTests" */ = {
 			isa = XCConfigurationList;
@@ -418,6 +475,7 @@
 				E72A7C0A1DFA664F0041731D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
