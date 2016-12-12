@@ -9,6 +9,39 @@
 import Foundation
 import Surge
 
+struct SampleData {
+    
+    let label : Int
+    var data = [Double]()
+    
+    init?(dataString :String){
+        
+        let strs : [String] = dataString.characters.split { $0 == "\n" || $0 == "," }.map(String.init)
+        if let label = strs.first, let d = Int(label) {
+            self.label = d
+        }else{
+            return nil
+        }
+        
+        for i in 1..<strs.count {
+            if let d = Double(strs[i]){
+                data.append(d)
+            }else{
+                return nil
+            }
+        }
+        //normalize
+        data = data.map{$0/255.0*0.99+0.01}
+        
+    }
+    
+    func outputs() -> [Double] {
+        var out = Array<Double>(repeating: 0.01, count: 10)
+        out[label] = 0.99
+        return out
+    }
+}
+
 struct NeuralNet {
     
     let learningRate : Double
@@ -32,6 +65,10 @@ struct NeuralNet {
             })
         
         self.weightsHiddenToOutput = Matrix(rows: nodeCountOutput, columns: nodeCountHidden, valueFunc:{ return (drand48() - 0.5)} )
+        
+        print("Intial weights")
+        //print(self.weightsInputToHidden)
+        //print(self.weightsHiddenToOutput)
     }
     
     
@@ -41,38 +78,61 @@ struct NeuralNet {
     }
     
     
-    func train(inputs : [[Double]], outputs : [[Double]]){
-        let result = self.query(inputs: inputs)
-        let target = Matrix(outputs)
+    mutating func train(inputs : [Double], outputs : [Double]){
+        //let result = self.query(inputs: inputs)
         
-        print("Target")
-        print(target)
-        print("Result")
-        print(result)
+        let inp = Surge.transpose(Matrix([inputs]))
+        let target = Surge.transpose(Matrix([outputs]))
         
-        let error = target+(-1.0*result)
+        let hiddenInputs = Surge.mul(self.weightsInputToHidden, y: inp)
+        
+        let hiddenOutputs = Surge.applyD(hiddenInputs, function: activation)
+        
+        let outputInputs = Surge.mul(self.weightsHiddenToOutput, y: hiddenOutputs)
+        
+        let output = Surge.applyD(outputInputs, function: activation)
         
         
-        print("Error is: ")
-        print(error)
+
+        //Errors
+        let outputError = target+(-1.0*output)
+        let hiddenError = Surge.mul(Surge.transpose(self.weightsHiddenToOutput), y: outputError)
+        
+        
+        //adjust hidden to out
+        let a1 = Surge.elmul(Surge.elmul(outputError, y: output), y: Surge.applyD(output, function:{return 1-$0}))
+        
+        let adjust = self.learningRate * Surge.mul(a1, y: Surge.transpose(hiddenOutputs))
+        
+        self.weightsHiddenToOutput = self.weightsHiddenToOutput + adjust
+        
+        //adjust out to hidden
+        
+        let a2 = Surge.elmul(Surge.elmul(hiddenError, y: hiddenOutputs), y: Surge.applyD(hiddenOutputs, function:{return 1-$0}))
+        
+        let adjust2 = self.learningRate * Surge.mul(a2, y: Surge.transpose(inp))
+        
+        self.weightsInputToHidden = self.weightsInputToHidden + adjust2
+        
+        //print("Adjusted")
+        //print(self.weightsHiddenToOutput)
+        //print(self.weightsInputToHidden)
         
     }
     
-    func query(inputs: [[Double]]) -> Matrix<Double>{
+    func query(inputs: [Double]) -> Matrix<Double>{
         
-        let inp = Matrix(inputs)
+        let inp = Surge.transpose(Matrix([inputs]))
         
         
-        var hiddenInputs = Surge.mul(self.weightsInputToHidden, y: inp)
-        hiddenInputs.apply(function: activation)
+        let hiddenInputs = Surge.mul(self.weightsInputToHidden, y: inp)
         
-        let hiddenOutputs = hiddenInputs
         
-        var outputInputs = Surge.mul(self.weightsHiddenToOutput, y: hiddenOutputs)
+        let hiddenOutputs = Surge.applyD(hiddenInputs, function: activation)
         
-        outputInputs.apply(function: activation)
+        let outputInputs = Surge.mul(self.weightsHiddenToOutput, y: hiddenOutputs)
         
-        let output = outputInputs
+        let output = Surge.applyD(outputInputs, function: activation)
         
         return output
         

@@ -16,6 +16,8 @@
 		E72A7C141DFA66DD0041731D /* Surge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E72A7C111DFA667F0041731D /* Surge.framework */; };
 		E72A7C161DFA67E20041731D /* NeuralNetScratchPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72A7C151DFA67E20041731D /* NeuralNetScratchPad.swift */; };
 		E72A7C171DFA67E20041731D /* NeuralNetScratchPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72A7C151DFA67E20041731D /* NeuralNetScratchPad.swift */; };
+		E7DCA5BF1DFE866B00BF7298 /* mnist_test_10.csv in Resources */ = {isa = PBXBuildFile; fileRef = E7DCA5BE1DFE866B00BF7298 /* mnist_test_10.csv */; };
+		E7DCA5C11DFE997A00BF7298 /* mnist_train_100.csv in Resources */ = {isa = PBXBuildFile; fileRef = E7DCA5C01DFE997A00BF7298 /* mnist_train_100.csv */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		E72A7C021DFA664F0041731D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E72A7C0B1DFA667E0041731D /* Surge.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Surge.xcodeproj; path = Surge/Surge.xcodeproj; sourceTree = "<group>"; };
 		E72A7C151DFA67E20041731D /* NeuralNetScratchPad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeuralNetScratchPad.swift; sourceTree = "<group>"; };
+		E7DCA5BE1DFE866B00BF7298 /* mnist_test_10.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mnist_test_10.csv; sourceTree = "<group>"; };
+		E7DCA5C01DFE997A00BF7298 /* mnist_train_100.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mnist_train_100.csv; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +102,7 @@
 		E72A7BEA1DFA664F0041731D /* NeuralNet */ = {
 			isa = PBXGroup;
 			children = (
+				E7DCA5C21DFE99AF00BF7298 /* TrainingData */,
 				E72A7BEB1DFA664F0041731D /* AppDelegate.swift */,
 				E72A7BED1DFA664F0041731D /* ViewController.swift */,
 				E72A7BEF1DFA664F0041731D /* Main.storyboard */,
@@ -125,6 +130,15 @@
 				E72A7C131DFA667F0041731D /* SurgeTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		E7DCA5C21DFE99AF00BF7298 /* TrainingData */ = {
+			isa = PBXGroup;
+			children = (
+				E7DCA5BE1DFE866B00BF7298 /* mnist_test_10.csv */,
+				E7DCA5C01DFE997A00BF7298 /* mnist_train_100.csv */,
+			);
+			name = TrainingData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,6 +250,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E72A7BF61DFA664F0041731D /* LaunchScreen.storyboard in Resources */,
+				E7DCA5C11DFE997A00BF7298 /* mnist_train_100.csv in Resources */,
+				E7DCA5BF1DFE866B00BF7298 /* mnist_test_10.csv in Resources */,
 				E72A7BF31DFA664F0041731D /* Assets.xcassets in Resources */,
 				E72A7BF11DFA664F0041731D /* Main.storyboard in Resources */,
 			);
