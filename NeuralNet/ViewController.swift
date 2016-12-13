@@ -20,7 +20,7 @@ class ViewController: UIViewController {
         //print(trainingDataCSVPath)
         let urlTest = URL(fileURLWithPath: testDataCSVPath)
         
-        var testData : [SampleData]?
+        var testData = [SampleData]()
         
         do{
             var testDataStr = try String(contentsOf: urlTest)
@@ -57,12 +57,27 @@ class ViewController: UIViewController {
         if let data = trainingData{
             for d in data{
                 neuralNet?.train(inputs: d.data, outputs: d.outputs())
-                print("Trained: \(d.label)")
+                //print("Trained: \(d.label)")
             }
         }
         
-        var o = neuralNet?.query(inputs: (testData?[0].data)!)
-        print(o)
+        
+        //test
+        var scorecard = Array.init(repeating: 0.0, count: (testData.count))
+        
+        for i in 0..<testData.count{
+            let o : [Double] = (neuralNet?.query(inputs: (testData[i].data)))!
+            let solution = o.max()
+            let value = o.index(of: solution!)
+            
+            if testData[i].label == value {
+                scorecard[i] = 1
+            }
+        }
+        
+        //print(scorecard)
+        
+        print("Score: \(scorecard.reduce(0, +)/Double(scorecard.count))")
     }
 
     override func viewDidLoad() {

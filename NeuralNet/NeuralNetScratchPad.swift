@@ -138,4 +138,8 @@ struct NeuralNet {
         
     }
     
+    func query(inputs: [Double]) -> [Double]{
+        let o:Matrix<Double> = self.query(inputs: inputs)
+        return Surge.dump(matrix: o)
+    }
 }
