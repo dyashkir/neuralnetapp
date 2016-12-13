@@ -86,11 +86,11 @@ struct NeuralNet {
         
         let hiddenInputs = Surge.mul(self.weightsInputToHidden, y: inp)
         
-        let hiddenOutputs = Surge.applyD(hiddenInputs, function: activation)
+        let hiddenOutputs = Surge.apply(hiddenInputs, function: activation)
         
         let outputInputs = Surge.mul(self.weightsHiddenToOutput, y: hiddenOutputs)
         
-        let output = Surge.applyD(outputInputs, function: activation)
+        let output = Surge.apply(outputInputs, function: activation)
         
         
 
@@ -100,7 +100,7 @@ struct NeuralNet {
         
         
         //adjust hidden to out
-        let a1 = Surge.elmul(Surge.elmul(outputError, y: output), y: Surge.applyD(output, function:{return 1-$0}))
+        let a1 = Surge.elmul(Surge.elmul(outputError, y: output), y: Surge.apply(output, function:{return 1-$0}))
         
         let adjust = self.learningRate * Surge.mul(a1, y: Surge.transpose(hiddenOutputs))
         
@@ -108,7 +108,7 @@ struct NeuralNet {
         
         //adjust out to hidden
         
-        let a2 = Surge.elmul(Surge.elmul(hiddenError, y: hiddenOutputs), y: Surge.applyD(hiddenOutputs, function:{return 1-$0}))
+        let a2 = Surge.elmul(Surge.elmul(hiddenError, y: hiddenOutputs), y: Surge.apply(hiddenOutputs, function:{return 1-$0}))
         
         let adjust2 = self.learningRate * Surge.mul(a2, y: Surge.transpose(inp))
         
@@ -128,11 +128,11 @@ struct NeuralNet {
         let hiddenInputs = Surge.mul(self.weightsInputToHidden, y: inp)
         
         
-        let hiddenOutputs = Surge.applyD(hiddenInputs, function: activation)
+        let hiddenOutputs = Surge.apply(hiddenInputs, function: activation)
         
         let outputInputs = Surge.mul(self.weightsHiddenToOutput, y: hiddenOutputs)
         
-        let output = Surge.applyD(outputInputs, function: activation)
+        let output = Surge.apply(outputInputs, function: activation)
         
         return output
         

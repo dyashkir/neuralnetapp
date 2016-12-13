@@ -13,7 +13,6 @@
 		E72A7BF31DFA664F0041731D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E72A7BF21DFA664F0041731D /* Assets.xcassets */; };
 		E72A7BF61DFA664F0041731D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E72A7BF41DFA664F0041731D /* LaunchScreen.storyboard */; };
 		E72A7C011DFA664F0041731D /* NeuralNetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72A7C001DFA664F0041731D /* NeuralNetTests.swift */; };
-		E72A7C141DFA66DD0041731D /* Surge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E72A7C111DFA667F0041731D /* Surge.framework */; };
 		E72A7C161DFA67E20041731D /* NeuralNetScratchPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72A7C151DFA67E20041731D /* NeuralNetScratchPad.swift */; };
 		E72A7C171DFA67E20041731D /* NeuralNetScratchPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72A7C151DFA67E20041731D /* NeuralNetScratchPad.swift */; };
 		E7DCA5BF1DFE866B00BF7298 /* mnist_test_10.csv in Resources */ = {isa = PBXBuildFile; fileRef = E7DCA5BE1DFE866B00BF7298 /* mnist_test_10.csv */; };
@@ -28,16 +27,16 @@
 			remoteGlobalIDString = E72A7BE71DFA664F0041731D;
 			remoteInfo = NeuralNet;
 		};
-		E72A7C101DFA667F0041731D /* PBXContainerItemProxy */ = {
+		E7DCA5C81DFFCE5300BF7298 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = E72A7C0B1DFA667E0041731D /* Surge.xcodeproj */;
+			containerPortal = E7DCA5C31DFFCE5200BF7298 /* Surge.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = F8A1E1AA19917A79009735E2;
 			remoteInfo = Surge;
 		};
-		E72A7C121DFA667F0041731D /* PBXContainerItemProxy */ = {
+		E7DCA5CA1DFFCE5300BF7298 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = E72A7C0B1DFA667E0041731D /* Surge.xcodeproj */;
+			containerPortal = E7DCA5C31DFFCE5200BF7298 /* Surge.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = F84A6AAE19A9A72F007B53E1;
 			remoteInfo = SurgeTests;
@@ -55,10 +54,10 @@
 		E72A7BFC1DFA664F0041731D /* NeuralNetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NeuralNetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E72A7C001DFA664F0041731D /* NeuralNetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeuralNetTests.swift; sourceTree = "<group>"; };
 		E72A7C021DFA664F0041731D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E72A7C0B1DFA667E0041731D /* Surge.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Surge.xcodeproj; path = Surge/Surge.xcodeproj; sourceTree = "<group>"; };
 		E72A7C151DFA67E20041731D /* NeuralNetScratchPad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeuralNetScratchPad.swift; sourceTree = "<group>"; };
 		E7DCA5BE1DFE866B00BF7298 /* mnist_test_10.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mnist_test_10.csv; sourceTree = "<group>"; };
 		E7DCA5C01DFE997A00BF7298 /* mnist_train_100.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mnist_train_100.csv; sourceTree = "<group>"; };
+		E7DCA5C31DFFCE5200BF7298 /* Surge.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Surge.xcodeproj; path = Surge/Surge.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +65,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E72A7C141DFA66DD0041731D /* Surge.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,7 +84,7 @@
 				E72A7BEA1DFA664F0041731D /* NeuralNet */,
 				E72A7BFF1DFA664F0041731D /* NeuralNetTests */,
 				E72A7BE91DFA664F0041731D /* Products */,
-				E72A7C0B1DFA667E0041731D /* Surge.xcodeproj */,
+				E7DCA5C31DFFCE5200BF7298 /* Surge.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -123,15 +121,6 @@
 			path = NeuralNetTests;
 			sourceTree = "<group>";
 		};
-		E72A7C0C1DFA667E0041731D /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				E72A7C111DFA667F0041731D /* Surge.framework */,
-				E72A7C131DFA667F0041731D /* SurgeTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		E7DCA5C21DFE99AF00BF7298 /* TrainingData */ = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +128,15 @@
 				E7DCA5C01DFE997A00BF7298 /* mnist_train_100.csv */,
 			);
 			name = TrainingData;
+			sourceTree = "<group>";
+		};
+		E7DCA5C41DFFCE5200BF7298 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E7DCA5C91DFFCE5300BF7298 /* Surge.framework */,
+				E7DCA5CB1DFFCE5300BF7298 /* SurgeTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,8 +213,8 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = E72A7C0C1DFA667E0041731D /* Products */;
-					ProjectRef = E72A7C0B1DFA667E0041731D /* Surge.xcodeproj */;
+					ProductGroup = E7DCA5C41DFFCE5200BF7298 /* Products */;
+					ProjectRef = E7DCA5C31DFFCE5200BF7298 /* Surge.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -228,18 +226,18 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		E72A7C111DFA667F0041731D /* Surge.framework */ = {
+		E7DCA5C91DFFCE5300BF7298 /* Surge.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = Surge.framework;
-			remoteRef = E72A7C101DFA667F0041731D /* PBXContainerItemProxy */;
+			remoteRef = E7DCA5C81DFFCE5300BF7298 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		E72A7C131DFA667F0041731D /* SurgeTests.xctest */ = {
+		E7DCA5CB1DFFCE5300BF7298 /* SurgeTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = SurgeTests.xctest;
-			remoteRef = E72A7C121DFA667F0041731D /* PBXContainerItemProxy */;
+			remoteRef = E7DCA5CA1DFFCE5300BF7298 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
