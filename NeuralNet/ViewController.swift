@@ -11,56 +11,55 @@ import UIKit
 import Surge
 
 class ViewController: UIViewController {
+    @IBOutlet weak var trainButton: UIButton!
+    @IBOutlet weak var progressIndicator: UIProgressView!
     
+    @IBOutlet weak var testResultLabel: UILabel!
     var neuralNet : NeuralNet?
     
-    func realNetwork() {
+    @IBAction func trainButtonPressed(_ sender: Any) {
+        progressIndicator.setProgress(0.0, animated: false)
+        let serialQueue = DispatchQueue(label: "com.queue.Serial")
+        serialQueue.async {
+            self.realNetwork(updateFunc:
+                { a in
+                    DispatchQueue.main.async{self.progressIndicator.setProgress(Float(a), animated: true)}},
+                             onFinish: { b  in
+                     DispatchQueue.main.async{self.testResultLabel.text = "Score: \(b)"}})
+            }
+    }
+
+    func loadDataFromCSV(urlString : String) -> [SampleData]{
+        let urlTest = URL(fileURLWithPath: urlString)
+        
+        var data = [SampleData]()
+        
+        do{
+            var dataStr = try String(contentsOf: urlTest)
+            let linesT = dataStr.characters.split { $0 == "\n" || $0 == "\r\n" }.map(String.init)
+            data = linesT.map{return SampleData(dataString: $0)!}
+        }catch{
+            fatalError()
+        }
+        return data
+    }
+    
+    private func realNetwork(updateFunc : (Double)->(), onFinish: (Double)->()) {
         let trainingDataCSVPath = Bundle.main.path(forResource: "mnist_train_100", ofType: "csv")!
         let testDataCSVPath = Bundle.main.path(forResource: "mnist_test_10", ofType: "csv")!
-        //print(trainingDataCSVPath)
-        let urlTest = URL(fileURLWithPath: testDataCSVPath)
         
-        var testData = [SampleData]()
+        let trainingData = loadDataFromCSV(urlString: trainingDataCSVPath)
+        let testData = loadDataFromCSV(urlString: testDataCSVPath)
         
-        do{
-            var testDataStr = try String(contentsOf: urlTest)
-            
-            let linesT = testDataStr.characters.split { $0 == "\n" || $0 == "\r\n" }.map(String.init)
-            
-            testData = linesT.map{return SampleData(dataString: $0)!}
-            
-            //print(trainingData)
-        }catch{
-            return
-        }
-        
-        
-        
-        
-        let url = URL(fileURLWithPath: trainingDataCSVPath)
-        
-        var trainingData : [SampleData]?
-        
-        do{
-            var trainingDataStr = try String(contentsOf: url)
-            
-            let lines = trainingDataStr.characters.split { $0 == "\n" || $0 == "\r\n" }.map(String.init)
-            
-            trainingData = lines.map{return SampleData(dataString: $0)!}
-            
-            //print(trainingData)
-        }catch{
-            return
-        }
         self.neuralNet = NeuralNet(nodeCountInput: 784, nodeCountHidden: 100, nodeCountOutput: 10, learningRate: 0.3)
         
-        if let data = trainingData{
-            for d in data{
-                neuralNet?.train(inputs: d.data, outputs: d.outputs())
-                //print("Trained: \(d.label)")
-            }
+        var now = 0.0
+        let step = 1.0/Double(trainingData.count)
+        for d in trainingData{
+            neuralNet?.train(inputs: d.data, outputs: d.outputs())
+            updateFunc(now)
+            now = now+step
         }
-        
         
         //test
         var scorecard = Array.init(repeating: 0.0, count: (testData.count))
@@ -78,23 +77,13 @@ class ViewController: UIViewController {
         //print(scorecard)
         
         print("Score: \(scorecard.reduce(0, +)/Double(scorecard.count))")
+        onFinish(scorecard.reduce(0, +)/Double(scorecard.count))
     }
 
     override func viewDidLoad() {
         
         super.viewDidLoad()
-       /*
-        self.neuralNet = NeuralNet(nodeCountInput: 3, nodeCountHidden: 3, nodeCountOutput: 3, learningRate: 0.5)
         
-        if let n = neuralNet{
-            let a = n.query(inputs: [[0.1], [0.2], [0.3]])
-            print("************************************************")
-            print(a)
-        }
-        */
-        //neuralNet?.train(inputs: [[0.1], [0.2], [0.3]], outputs: [[0.1], [0.2], [0.3]])
-        
-        realNetwork()
     }
 
     override func didReceiveMemoryWarning() {

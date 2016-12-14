@@ -15,6 +15,9 @@
 		E72A7C011DFA664F0041731D /* NeuralNetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72A7C001DFA664F0041731D /* NeuralNetTests.swift */; };
 		E72A7C161DFA67E20041731D /* NeuralNetScratchPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72A7C151DFA67E20041731D /* NeuralNetScratchPad.swift */; };
 		E72A7C171DFA67E20041731D /* NeuralNetScratchPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72A7C151DFA67E20041731D /* NeuralNetScratchPad.swift */; };
+		E7D552EA1E011F3300A57BCF /* Surge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7DCA5C91DFFCE5300BF7298 /* Surge.framework */; };
+		E7D552EB1E0132EF00A57BCF /* Surge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7DCA5C91DFFCE5300BF7298 /* Surge.framework */; };
+		E7D552EC1E0132EF00A57BCF /* Surge.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E7DCA5C91DFFCE5300BF7298 /* Surge.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E7DCA5BF1DFE866B00BF7298 /* mnist_test_10.csv in Resources */ = {isa = PBXBuildFile; fileRef = E7DCA5BE1DFE866B00BF7298 /* mnist_test_10.csv */; };
 		E7DCA5C11DFE997A00BF7298 /* mnist_train_100.csv in Resources */ = {isa = PBXBuildFile; fileRef = E7DCA5C01DFE997A00BF7298 /* mnist_train_100.csv */; };
 /* End PBXBuildFile section */
@@ -26,6 +29,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = E72A7BE71DFA664F0041731D;
 			remoteInfo = NeuralNet;
+		};
+		E7D552ED1E0132EF00A57BCF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E7DCA5C31DFFCE5200BF7298 /* Surge.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F8A1E1A919917A79009735E2;
+			remoteInfo = Surge;
 		};
 		E7DCA5C81DFFCE5300BF7298 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -42,6 +52,20 @@
 			remoteInfo = SurgeTests;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E7D552EF1E0132EF00A57BCF /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				E7D552EC1E0132EF00A57BCF /* Surge.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		E72A7BE81DFA664F0041731D /* NeuralNet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeuralNet.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,6 +89,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7D552EA1E011F3300A57BCF /* Surge.framework in Frameworks */,
+				E7D552EB1E0132EF00A57BCF /* Surge.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,10 +175,12 @@
 				E72A7BE41DFA664F0041731D /* Sources */,
 				E72A7BE51DFA664F0041731D /* Frameworks */,
 				E72A7BE61DFA664F0041731D /* Resources */,
+				E7D552EF1E0132EF00A57BCF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				E7D552EE1E0132EF00A57BCF /* PBXTargetDependency */,
 			);
 			name = NeuralNet;
 			productName = NeuralNet;
@@ -292,6 +320,11 @@
 			target = E72A7BE71DFA664F0041731D /* NeuralNet */;
 			targetProxy = E72A7BFD1DFA664F0041731D /* PBXContainerItemProxy */;
 		};
+		E7D552EE1E0132EF00A57BCF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Surge;
+			targetProxy = E7D552ED1E0132EF00A57BCF /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -408,6 +441,7 @@
 		E72A7C061DFA664F0041731D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = AE5H7U4DWH;
 				INFOPLIST_FILE = NeuralNet/Info.plist;
@@ -421,6 +455,7 @@
 		E72A7C071DFA664F0041731D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = AE5H7U4DWH;
 				INFOPLIST_FILE = NeuralNet/Info.plist;
