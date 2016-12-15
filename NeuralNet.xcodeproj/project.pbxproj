@@ -13,8 +13,8 @@
 		E72A7BF31DFA664F0041731D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E72A7BF21DFA664F0041731D /* Assets.xcassets */; };
 		E72A7BF61DFA664F0041731D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E72A7BF41DFA664F0041731D /* LaunchScreen.storyboard */; };
 		E72A7C011DFA664F0041731D /* NeuralNetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72A7C001DFA664F0041731D /* NeuralNetTests.swift */; };
-		E72A7C161DFA67E20041731D /* NeuralNetScratchPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72A7C151DFA67E20041731D /* NeuralNetScratchPad.swift */; };
-		E72A7C171DFA67E20041731D /* NeuralNetScratchPad.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72A7C151DFA67E20041731D /* NeuralNetScratchPad.swift */; };
+		E72A7C161DFA67E20041731D /* NeuralNet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72A7C151DFA67E20041731D /* NeuralNet.swift */; };
+		E72A7C171DFA67E20041731D /* NeuralNet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72A7C151DFA67E20041731D /* NeuralNet.swift */; };
 		E7D552EA1E011F3300A57BCF /* Surge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7DCA5C91DFFCE5300BF7298 /* Surge.framework */; };
 		E7D552EB1E0132EF00A57BCF /* Surge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7DCA5C91DFFCE5300BF7298 /* Surge.framework */; };
 		E7D552EC1E0132EF00A57BCF /* Surge.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E7DCA5C91DFFCE5300BF7298 /* Surge.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -78,7 +78,7 @@
 		E72A7BFC1DFA664F0041731D /* NeuralNetTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NeuralNetTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E72A7C001DFA664F0041731D /* NeuralNetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeuralNetTests.swift; sourceTree = "<group>"; };
 		E72A7C021DFA664F0041731D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E72A7C151DFA67E20041731D /* NeuralNetScratchPad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeuralNetScratchPad.swift; sourceTree = "<group>"; };
+		E72A7C151DFA67E20041731D /* NeuralNet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeuralNet.swift; sourceTree = "<group>"; };
 		E7DCA5BE1DFE866B00BF7298 /* mnist_test_10.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mnist_test_10.csv; sourceTree = "<group>"; };
 		E7DCA5C01DFE997A00BF7298 /* mnist_train_100.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mnist_train_100.csv; sourceTree = "<group>"; };
 		E7DCA5C31DFFCE5200BF7298 /* Surge.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Surge.xcodeproj; path = Surge/Surge.xcodeproj; sourceTree = "<group>"; };
@@ -133,7 +133,7 @@
 				E72A7BF21DFA664F0041731D /* Assets.xcassets */,
 				E72A7BF41DFA664F0041731D /* LaunchScreen.storyboard */,
 				E72A7BF71DFA664F0041731D /* Info.plist */,
-				E72A7C151DFA67E20041731D /* NeuralNetScratchPad.swift */,
+				E72A7C151DFA67E20041731D /* NeuralNet.swift */,
 			);
 			path = NeuralNet;
 			sourceTree = "<group>";
@@ -297,7 +297,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E72A7C161DFA67E20041731D /* NeuralNetScratchPad.swift in Sources */,
+				E72A7C161DFA67E20041731D /* NeuralNet.swift in Sources */,
 				E72A7BEE1DFA664F0041731D /* ViewController.swift in Sources */,
 				E72A7BEC1DFA664F0041731D /* AppDelegate.swift in Sources */,
 			);
@@ -308,7 +308,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E72A7C011DFA664F0041731D /* NeuralNetTests.swift in Sources */,
-				E72A7C171DFA67E20041731D /* NeuralNetScratchPad.swift in Sources */,
+				E72A7C171DFA67E20041731D /* NeuralNet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -25,31 +25,19 @@ class ViewController: UIViewController {
                 { a in
                     DispatchQueue.main.async{self.progressIndicator.setProgress(Float(a), animated: true)}},
                              onFinish: { b  in
-                     DispatchQueue.main.async{self.testResultLabel.text = "Score: \(b)"}})
-            }
+                                DispatchQueue.main.async{self.testResultLabel.text = "Score: \(b)"}
+            })
+        }
     }
 
-    func loadDataFromCSV(urlString : String) -> [SampleData]{
-        let urlTest = URL(fileURLWithPath: urlString)
-        
-        var data = [SampleData]()
-        
-        do{
-            var dataStr = try String(contentsOf: urlTest)
-            let linesT = dataStr.characters.split { $0 == "\n" || $0 == "\r\n" }.map(String.init)
-            data = linesT.map{return SampleData(dataString: $0)!}
-        }catch{
-            fatalError()
-        }
-        return data
-    }
+    
     
     private func realNetwork(updateFunc : (Double)->(), onFinish: (Double)->()) {
         let trainingDataCSVPath = Bundle.main.path(forResource: "mnist_train_100", ofType: "csv")!
         let testDataCSVPath = Bundle.main.path(forResource: "mnist_test_10", ofType: "csv")!
         
-        let trainingData = loadDataFromCSV(urlString: trainingDataCSVPath)
-        let testData = loadDataFromCSV(urlString: testDataCSVPath)
+        let trainingData = SampleData.loadDataFromCSV(urlString: trainingDataCSVPath)
+        let testData = SampleData.loadDataFromCSV(urlString: testDataCSVPath)
         
         self.neuralNet = NeuralNet(nodeCountInput: 784, nodeCountHidden: 100, nodeCountOutput: 10, learningRate: 0.3)
         

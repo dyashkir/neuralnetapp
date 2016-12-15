@@ -11,6 +11,21 @@ import Surge
 
 struct SampleData {
     
+    static func loadDataFromCSV(urlString : String) -> [SampleData]{
+        let urlTest = URL(fileURLWithPath: urlString)
+        
+        var data = [SampleData]()
+        
+        do{
+            var dataStr = try String(contentsOf: urlTest)
+            let linesT = dataStr.characters.split { $0 == "\n" || $0 == "\r\n" }.map(String.init)
+            data = linesT.map{return SampleData(dataString: $0)!}
+        }catch{
+            fatalError()
+        }
+        return data
+    }
+    
     let label : Int
     var data = [Double]()
     
