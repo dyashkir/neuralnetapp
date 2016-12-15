@@ -18,6 +18,8 @@
 		E7D552EA1E011F3300A57BCF /* Surge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7DCA5C91DFFCE5300BF7298 /* Surge.framework */; };
 		E7D552EB1E0132EF00A57BCF /* Surge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7DCA5C91DFFCE5300BF7298 /* Surge.framework */; };
 		E7D552EC1E0132EF00A57BCF /* Surge.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E7DCA5C91DFFCE5300BF7298 /* Surge.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E7D552F31E026F5F00A57BCF /* FingerDrawingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D552F21E026F5F00A57BCF /* FingerDrawingViewController.swift */; };
+		E7D552F51E02792300A57BCF /* NetworkKeeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D552F41E02792300A57BCF /* NetworkKeeper.swift */; };
 		E7DCA5BF1DFE866B00BF7298 /* mnist_test_10.csv in Resources */ = {isa = PBXBuildFile; fileRef = E7DCA5BE1DFE866B00BF7298 /* mnist_test_10.csv */; };
 		E7DCA5C11DFE997A00BF7298 /* mnist_train_100.csv in Resources */ = {isa = PBXBuildFile; fileRef = E7DCA5C01DFE997A00BF7298 /* mnist_train_100.csv */; };
 /* End PBXBuildFile section */
@@ -79,6 +81,8 @@
 		E72A7C001DFA664F0041731D /* NeuralNetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeuralNetTests.swift; sourceTree = "<group>"; };
 		E72A7C021DFA664F0041731D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E72A7C151DFA67E20041731D /* NeuralNet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeuralNet.swift; sourceTree = "<group>"; };
+		E7D552F21E026F5F00A57BCF /* FingerDrawingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FingerDrawingViewController.swift; sourceTree = "<group>"; };
+		E7D552F41E02792300A57BCF /* NetworkKeeper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkKeeper.swift; sourceTree = "<group>"; };
 		E7DCA5BE1DFE866B00BF7298 /* mnist_test_10.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mnist_test_10.csv; sourceTree = "<group>"; };
 		E7DCA5C01DFE997A00BF7298 /* mnist_train_100.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mnist_train_100.csv; sourceTree = "<group>"; };
 		E7DCA5C31DFFCE5200BF7298 /* Surge.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Surge.xcodeproj; path = Surge/Surge.xcodeproj; sourceTree = "<group>"; };
@@ -129,11 +133,13 @@
 				E7DCA5C21DFE99AF00BF7298 /* TrainingData */,
 				E72A7BEB1DFA664F0041731D /* AppDelegate.swift */,
 				E72A7BED1DFA664F0041731D /* ViewController.swift */,
+				E7D552F41E02792300A57BCF /* NetworkKeeper.swift */,
 				E72A7BEF1DFA664F0041731D /* Main.storyboard */,
 				E72A7BF21DFA664F0041731D /* Assets.xcassets */,
 				E72A7BF41DFA664F0041731D /* LaunchScreen.storyboard */,
 				E72A7BF71DFA664F0041731D /* Info.plist */,
 				E72A7C151DFA67E20041731D /* NeuralNet.swift */,
+				E7D552F21E026F5F00A57BCF /* FingerDrawingViewController.swift */,
 			);
 			path = NeuralNet;
 			sourceTree = "<group>";
@@ -297,7 +303,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7D552F31E026F5F00A57BCF /* FingerDrawingViewController.swift in Sources */,
 				E72A7C161DFA67E20041731D /* NeuralNet.swift in Sources */,
+				E7D552F51E02792300A57BCF /* NetworkKeeper.swift in Sources */,
 				E72A7BEE1DFA664F0041731D /* ViewController.swift in Sources */,
 				E72A7BEC1DFA664F0041731D /* AppDelegate.swift in Sources */,
 			);

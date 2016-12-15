@@ -15,58 +15,27 @@ class ViewController: UIViewController {
     @IBOutlet weak var progressIndicator: UIProgressView!
     
     @IBOutlet weak var testResultLabel: UILabel!
-    var neuralNet : NeuralNet?
     
+    @IBAction func testButtonPressed(_ sender: Any) {
+        NetworkKeeper.sharedSingleton.test(
+            onFinish: { b  in
+                self.testResultLabel.text = "Score: \(b)"
+        })
+    }
     @IBAction func trainButtonPressed(_ sender: Any) {
         progressIndicator.setProgress(0.0, animated: false)
         let serialQueue = DispatchQueue(label: "com.queue.Serial")
         serialQueue.async {
-            self.realNetwork(updateFunc:
+            NetworkKeeper.sharedSingleton.train(updateFunc:
                 { a in
                     DispatchQueue.main.async{self.progressIndicator.setProgress(Float(a), animated: true)}},
-                             onFinish: { b  in
-                                DispatchQueue.main.async{self.testResultLabel.text = "Score: \(b)"}
-            })
+                             onFinish: { _ in return })
         }
     }
 
     
     
-    private func realNetwork(updateFunc : (Double)->(), onFinish: (Double)->()) {
-        let trainingDataCSVPath = Bundle.main.path(forResource: "mnist_train_100", ofType: "csv")!
-        let testDataCSVPath = Bundle.main.path(forResource: "mnist_test_10", ofType: "csv")!
-        
-        let trainingData = SampleData.loadDataFromCSV(urlString: trainingDataCSVPath)
-        let testData = SampleData.loadDataFromCSV(urlString: testDataCSVPath)
-        
-        self.neuralNet = NeuralNet(nodeCountInput: 784, nodeCountHidden: 100, nodeCountOutput: 10, learningRate: 0.3)
-        
-        var now = 0.0
-        let step = 1.0/Double(trainingData.count)
-        for d in trainingData{
-            neuralNet?.train(inputs: d.data, outputs: d.outputs())
-            updateFunc(now)
-            now = now+step
-        }
-        
-        //test
-        var scorecard = Array.init(repeating: 0.0, count: (testData.count))
-        
-        for i in 0..<testData.count{
-            let o : [Double] = (neuralNet?.query(inputs: (testData[i].data)))!
-            let solution = o.max()
-            let value = o.index(of: solution!)
-            
-            if testData[i].label == value {
-                scorecard[i] = 1
-            }
-        }
-        
-        //print(scorecard)
-        
-        print("Score: \(scorecard.reduce(0, +)/Double(scorecard.count))")
-        onFinish(scorecard.reduce(0, +)/Double(scorecard.count))
-    }
+    
 
     override func viewDidLoad() {
         
