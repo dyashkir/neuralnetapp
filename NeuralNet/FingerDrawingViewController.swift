@@ -7,6 +7,46 @@
 //
 
 import UIKit
+extension UIImage {
+    func getPixelColor(pos: CGPoint) -> UIColor {
+        
+        let pixelData = self.cgImage!.dataProvider!.data
+        let data: UnsafePointer<UInt8> = CFDataGetBytePtr(pixelData)
+        
+        let pixelInfo: Int = ((Int(self.size.width) * Int(pos.y)) + Int(pos.x)) * 4
+        
+        let r = CGFloat(data[pixelInfo]) / CGFloat(255.0)
+        let g = CGFloat(data[pixelInfo+1]) / CGFloat(255.0)
+        let b = CGFloat(data[pixelInfo+2]) / CGFloat(255.0)
+        let a = CGFloat(data[pixelInfo+3]) / CGFloat(255.0)
+        
+        return UIColor(red: r, green: g, blue: b, alpha: a)
+    }
+}
+
+extension UIImage {
+    func sampleImage() -> [Double]{
+        var sample = [Double]()
+        let pixelData = self.cgImage!.dataProvider!.data
+        let data: UnsafePointer<UInt8> = CFDataGetBytePtr(pixelData)
+        
+        for y in 0..<28 {
+            for x in 0..<28{
+                let qx = CGFloat(x)*self.size.height/28
+                let qy = CGFloat(y)*self.size.width/28
+                
+                let pixelInfo: Int = ((Int(self.size.width) * Int(qy)) + Int(qx)) * 4
+                let r = CGFloat(data[pixelInfo]) / CGFloat(255.0)
+                let g = CGFloat(data[pixelInfo+1]) / CGFloat(255.0)
+                let b = CGFloat(data[pixelInfo+2]) / CGFloat(255.0)
+                sample.append(Double(g+b)/2.0)
+            }
+        }
+        
+        return sample
+        
+    }
+}
 
 class FingerDrawingViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
@@ -17,14 +57,24 @@ class FingerDrawingViewController: UIViewController {
     //drawing properties
     var lastPoint = CGPoint.zero
     var red: CGFloat = 0.0
-    var green: CGFloat = 0.0
-    var blue: CGFloat = 0.0
-    var brushWidth: CGFloat = 10.0
+    var green: CGFloat = 0.7
+    var blue: CGFloat = 0.4
+    var brushWidth: CGFloat = 50.0
     var opacity: CGFloat = 1.0
     var swiped = false
     
     @IBAction func queryButtonPress(_ sender: Any) {
-        let image = imageView.image
+        if let image = imageView.image {
+            
+            let sample = image.sampleImage()
+            print(sample)
+            
+            let res : [Double] = (NetworkKeeper.sharedSingleton.neuralNet?.query(inputs: sample))!
+            
+            print(res)
+            
+        }
+        
     }
     @IBAction func clearButton(_ sender: Any) {
         imageView.image = nil

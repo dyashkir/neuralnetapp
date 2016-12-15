@@ -16,7 +16,6 @@
 		E72A7C161DFA67E20041731D /* NeuralNet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72A7C151DFA67E20041731D /* NeuralNet.swift */; };
 		E72A7C171DFA67E20041731D /* NeuralNet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72A7C151DFA67E20041731D /* NeuralNet.swift */; };
 		E7D552EA1E011F3300A57BCF /* Surge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7DCA5C91DFFCE5300BF7298 /* Surge.framework */; };
-		E7D552EB1E0132EF00A57BCF /* Surge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7DCA5C91DFFCE5300BF7298 /* Surge.framework */; };
 		E7D552EC1E0132EF00A57BCF /* Surge.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E7DCA5C91DFFCE5300BF7298 /* Surge.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E7D552F31E026F5F00A57BCF /* FingerDrawingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D552F21E026F5F00A57BCF /* FingerDrawingViewController.swift */; };
 		E7D552F51E02792300A57BCF /* NetworkKeeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D552F41E02792300A57BCF /* NetworkKeeper.swift */; };
@@ -94,7 +93,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7D552EA1E011F3300A57BCF /* Surge.framework in Frameworks */,
-				E7D552EB1E0132EF00A57BCF /* Surge.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,6 +371,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -422,6 +421,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
