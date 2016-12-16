@@ -10,45 +10,14 @@ import Foundation
 import Surge
 
 struct SampleData {
-    
-    static func loadDataFromCSV(urlString : String) -> [SampleData]{
-        let urlTest = URL(fileURLWithPath: urlString)
-        
-        var data = [SampleData]()
-        
-        do{
-            var dataStr = try String(contentsOf: urlTest)
-            let linesT = dataStr.characters.split { $0 == "\n" || $0 == "\r\n" }.map(String.init)
-            data = linesT.map{return SampleData(dataString: $0)!}
-        }catch{
-            fatalError()
-        }
-        return data
-    }
-    
+   
     let label : Int
     var data = [Double]()
     
-    //init from a csv
-    init?(dataString :String){
-        
-        let strs : [String] = dataString.characters.split { $0 == "\n" || $0 == "," }.map(String.init)
-        if let label = strs.first, let d = Int(label) {
-            self.label = d
-        }else{
-            return nil
-        }
-        
-        for i in 1..<strs.count {
-            if let d = Double(strs[i]){
-                data.append(d)
-            }else{
-                return nil
-            }
-        }
-        //normalize
-        data = data.map{$0/255.0*0.99+0.01}
-        
+    
+    init(label : Int, data : [Double]){
+        self.label = label
+        self.data = data.map{$0/255.0*0.99+0.01}
     }
     
     func outputs() -> [Double] {

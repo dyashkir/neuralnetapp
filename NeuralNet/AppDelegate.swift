@@ -16,8 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        let serialQueue = DispatchQueue(label: "com.queue.SerialInit")
-        serialQueue.async {NetworkKeeper.sharedSingleton.initNetwork()}
+        //let serialQueue = DispatchQueue(label: "com.queue.SerialInit")
+        //serialQueue.async {NetworkKeeper.sharedSingleton.initNetwork()}
+        NetworkKeeper.sharedSingleton.initNetwork()
+        NetworkKeeper.sharedSingleton.loadData()
         return true
     }
 

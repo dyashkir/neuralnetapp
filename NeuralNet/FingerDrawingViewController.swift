@@ -39,7 +39,7 @@ extension UIImage {
                 let r = CGFloat(data[pixelInfo]) / CGFloat(255.0)
                 let g = CGFloat(data[pixelInfo+1]) / CGFloat(255.0)
                 let b = CGFloat(data[pixelInfo+2]) / CGFloat(255.0)
-                sample.append(Double(g+b)/2.0)
+                sample.append(Double(r+g+b)/3.0)
             }
         }
         

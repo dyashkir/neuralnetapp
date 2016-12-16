@@ -7,62 +7,79 @@
 //
 
 import Foundation
+import CSVImporter
 
 class NetworkKeeper {
     
     var neuralNet: NeuralNet?
     
-    let trainingData : [SampleData]
-    let testData : [SampleData]
+    var trainingData : [SampleData]?
+    var testData : [SampleData]?
     
     static let sharedSingleton = { () -> NetworkKeeper in
         let tr : NetworkKeeper = NetworkKeeper()
-        
-        
         return tr
     }()
     
-    init(){
-        let testDataCSVPath = Bundle.main.path(forResource: "mnist_test_10", ofType: "csv")!
-        let trainingDataCSVPath = Bundle.main.path(forResource: "mnist_train_100", ofType: "csv")!
+    func loadData(){
         
-        trainingData = SampleData.loadDataFromCSV(urlString: trainingDataCSVPath)
-        testData = SampleData.loadDataFromCSV(urlString: testDataCSVPath)
+        func mapper(recordValues : [String]) -> SampleData{
+            let vals : [Double] = recordValues[1..<recordValues.count].map({return Double($0)!})
+            return SampleData(label: Int(recordValues[0])!, data: vals)
+        }
+        
+        let trainingDataCSVPath = Bundle.main.path(forResource: "mnist_train", ofType: "csv")!
+        let trainingImporter = CSVImporter<SampleData>(path: trainingDataCSVPath)
+        
+        
+        trainingImporter.startImportingRecords( mapper: mapper).onFinish { importedRecords in
+                self.trainingData = importedRecords
+        }
+        
+        let testDataCSVPath = Bundle.main.path(forResource: "mnist_test_10", ofType: "csv")!
+        let testingImporter = CSVImporter<SampleData>(path: testDataCSVPath)
+        
+        testingImporter.startImportingRecords( mapper: mapper).onFinish { importedRecords in
+                self.testData = importedRecords
+        }
     }
-    
+
     
     func initNetwork(){
         self.neuralNet = NeuralNet(nodeCountInput: 784, nodeCountHidden: 100, nodeCountOutput: 10, learningRate: 0.3)
     }
     
     func train(updateFunc : (Double)->(), onFinish: (Double)->()) {
-        
-        
-        var now = 0.0
-        let step = 1.0/Double(trainingData.count)
-        for d in trainingData{
-            neuralNet?.train(inputs: d.data, outputs: d.outputs())
-            updateFunc(now)
-            now = now+step
+       
+        if let trainingData = self.trainingData {
+            
+            var now = 0.0
+            let step = 1.0/Double(trainingData.count)
+            for d in trainingData{
+                neuralNet?.train(inputs: d.data, outputs: d.outputs())
+                updateFunc(now)
+                now = now+step
+            }
+            
         }
-        
         
     }
     //test
     func test(onFinish: (Double)->()){
-        var scorecard = Array.init(repeating: 0.0, count: (testData.count))
-        
-        for i in 0..<testData.count{
-            let o : [Double] = (neuralNet?.query(inputs: (testData[i].data)))!
-            let solution = o.max()
-            let value = o.index(of: solution!)
+        if let testData = self.testData{
+            var scorecard = Array.init(repeating: 0.0, count: (testData.count))
             
-            if testData[i].label == value {
-                scorecard[i] = 1
+            for i in 0..<testData.count{
+                let o : [Double] = (neuralNet?.query(inputs: (testData[i].data)))!
+                let solution = o.max()
+                let value = o.index(of: solution!)
+                
+                if testData[i].label == value {
+                    scorecard[i] = 1
+                }
             }
+            
+            onFinish(scorecard.reduce(0, +)/Double(scorecard.count))
         }
-        
-        //print("Score: \(scorecard.reduce(0, +)/Double(scorecard.count))")
-        onFinish(scorecard.reduce(0, +)/Double(scorecard.count))
     }
 }

@@ -1,0 +1,18 @@
+PODS:
+  - CSVImporter (1.3.0):
+    - FileKit (~> 4.0)
+    - HandySwift (~> 1.3)
+  - FileKit (4.0.0)
+  - HandySwift (1.3.1)
+
+DEPENDENCIES:
+  - CSVImporter
+
+SPEC CHECKSUMS:
+  CSVImporter: 72f1a307ba844da60175c1b8e888a421a6510b9d
+  FileKit: 2589d0393b3bfdc599c2ba6e41419be6db4279e0
+  HandySwift: 5b7279dd1d66d558cd8a6e0743856d727d4e1179
+
+PODFILE CHECKSUM: 54d636a73e33e7d9cafb8b7617ce905215f495fa
+
+COCOAPODS: 1.1.1

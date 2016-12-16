@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0983A09D57F7BC12BBB4C476 /* Pods_NeuralNet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 292E3D1871C96A6033606E34 /* Pods_NeuralNet.framework */; };
+		7C17B0FBEDEB408449A55F34 /* Pods_NeuralNetTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB56333CC72AADDD69C98D33 /* Pods_NeuralNetTests.framework */; };
 		E72A7BEC1DFA664F0041731D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72A7BEB1DFA664F0041731D /* AppDelegate.swift */; };
 		E72A7BEE1DFA664F0041731D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72A7BED1DFA664F0041731D /* ViewController.swift */; };
 		E72A7BF11DFA664F0041731D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E72A7BEF1DFA664F0041731D /* Main.storyboard */; };
@@ -15,8 +17,9 @@
 		E72A7C011DFA664F0041731D /* NeuralNetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72A7C001DFA664F0041731D /* NeuralNetTests.swift */; };
 		E72A7C161DFA67E20041731D /* NeuralNet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72A7C151DFA67E20041731D /* NeuralNet.swift */; };
 		E72A7C171DFA67E20041731D /* NeuralNet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E72A7C151DFA67E20041731D /* NeuralNet.swift */; };
-		E7D552EA1E011F3300A57BCF /* Surge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7DCA5C91DFFCE5300BF7298 /* Surge.framework */; };
-		E7D552EC1E0132EF00A57BCF /* Surge.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E7DCA5C91DFFCE5300BF7298 /* Surge.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E7B5CAFB1E03994E00C0DBD5 /* mnist_train.csv in Resources */ = {isa = PBXBuildFile; fileRef = E7B5CAFA1E03994E00C0DBD5 /* mnist_train.csv */; };
+		E7D552EA1E011F3300A57BCF /* ReferenceProxy in Frameworks */ = {isa = PBXBuildFile; fileRef = E7DCA5C91DFFCE5300BF7298 /* Surge.framework */; };
+		E7D552EC1E0132EF00A57BCF /* ReferenceProxy in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E7DCA5C91DFFCE5300BF7298 /* Surge.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E7D552F31E026F5F00A57BCF /* FingerDrawingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D552F21E026F5F00A57BCF /* FingerDrawingViewController.swift */; };
 		E7D552F51E02792300A57BCF /* NetworkKeeper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D552F41E02792300A57BCF /* NetworkKeeper.swift */; };
 		E7DCA5BF1DFE866B00BF7298 /* mnist_test_10.csv in Resources */ = {isa = PBXBuildFile; fileRef = E7DCA5BE1DFE866B00BF7298 /* mnist_test_10.csv */; };
@@ -61,7 +64,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				E7D552EC1E0132EF00A57BCF /* Surge.framework in Embed Frameworks */,
+				E7D552EC1E0132EF00A57BCF /* ReferenceProxy in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -69,6 +72,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		09F71AF15EC6C99A41B1A8E9 /* Pods-NeuralNet.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NeuralNet.release.xcconfig"; path = "Pods/Target Support Files/Pods-NeuralNet/Pods-NeuralNet.release.xcconfig"; sourceTree = "<group>"; };
+		292E3D1871C96A6033606E34 /* Pods_NeuralNet.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NeuralNet.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A79AB4F07DD8AF29639996C /* Pods-NeuralNetTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NeuralNetTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NeuralNetTests/Pods-NeuralNetTests.debug.xcconfig"; sourceTree = "<group>"; };
+		AB56333CC72AADDD69C98D33 /* Pods_NeuralNetTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NeuralNetTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB04CD12608637F30B68A4D6 /* Pods-NeuralNet.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NeuralNet.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NeuralNet/Pods-NeuralNet.debug.xcconfig"; sourceTree = "<group>"; };
+		DC22D47E224A96A20ED980FC /* Pods-NeuralNetTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NeuralNetTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NeuralNetTests/Pods-NeuralNetTests.release.xcconfig"; sourceTree = "<group>"; };
 		E72A7BE81DFA664F0041731D /* NeuralNet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeuralNet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E72A7BEB1DFA664F0041731D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E72A7BED1DFA664F0041731D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +89,7 @@
 		E72A7C001DFA664F0041731D /* NeuralNetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeuralNetTests.swift; sourceTree = "<group>"; };
 		E72A7C021DFA664F0041731D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E72A7C151DFA67E20041731D /* NeuralNet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeuralNet.swift; sourceTree = "<group>"; };
+		E7B5CAFA1E03994E00C0DBD5 /* mnist_train.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mnist_train.csv; sourceTree = "<group>"; };
 		E7D552F21E026F5F00A57BCF /* FingerDrawingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FingerDrawingViewController.swift; sourceTree = "<group>"; };
 		E7D552F41E02792300A57BCF /* NetworkKeeper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkKeeper.swift; sourceTree = "<group>"; };
 		E7DCA5BE1DFE866B00BF7298 /* mnist_test_10.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = mnist_test_10.csv; sourceTree = "<group>"; };
@@ -92,7 +102,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7D552EA1E011F3300A57BCF /* Surge.framework in Frameworks */,
+				E7D552EA1E011F3300A57BCF /* ReferenceProxy in Frameworks */,
+				0983A09D57F7BC12BBB4C476 /* Pods_NeuralNet.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,12 +111,33 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C17B0FBEDEB408449A55F34 /* Pods_NeuralNetTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8E6C43F17977155C46310761 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CB04CD12608637F30B68A4D6 /* Pods-NeuralNet.debug.xcconfig */,
+				09F71AF15EC6C99A41B1A8E9 /* Pods-NeuralNet.release.xcconfig */,
+				5A79AB4F07DD8AF29639996C /* Pods-NeuralNetTests.debug.xcconfig */,
+				DC22D47E224A96A20ED980FC /* Pods-NeuralNetTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C3959AF2DD27615265909223 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				292E3D1871C96A6033606E34 /* Pods_NeuralNet.framework */,
+				AB56333CC72AADDD69C98D33 /* Pods_NeuralNetTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E72A7BDF1DFA664F0041731D = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +145,8 @@
 				E72A7BFF1DFA664F0041731D /* NeuralNetTests */,
 				E72A7BE91DFA664F0041731D /* Products */,
 				E7DCA5C31DFFCE5200BF7298 /* Surge.xcodeproj */,
+				8E6C43F17977155C46310761 /* Pods */,
+				C3959AF2DD27615265909223 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -154,6 +188,7 @@
 		E7DCA5C21DFE99AF00BF7298 /* TrainingData */ = {
 			isa = PBXGroup;
 			children = (
+				E7B5CAFA1E03994E00C0DBD5 /* mnist_train.csv */,
 				E7DCA5BE1DFE866B00BF7298 /* mnist_test_10.csv */,
 				E7DCA5C01DFE997A00BF7298 /* mnist_train_100.csv */,
 			);
@@ -176,10 +211,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E72A7C051DFA664F0041731D /* Build configuration list for PBXNativeTarget "NeuralNet" */;
 			buildPhases = (
+				38C00B6390FF6FDCDBE2643A /* [CP] Check Pods Manifest.lock */,
 				E72A7BE41DFA664F0041731D /* Sources */,
 				E72A7BE51DFA664F0041731D /* Frameworks */,
 				E72A7BE61DFA664F0041731D /* Resources */,
 				E7D552EF1E0132EF00A57BCF /* Embed Frameworks */,
+				BB67FAB6FB5BC73C65FD05DA /* [CP] Embed Pods Frameworks */,
+				91FCE1C234A8DB1A45BE028E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -195,9 +233,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E72A7C081DFA664F0041731D /* Build configuration list for PBXNativeTarget "NeuralNetTests" */;
 			buildPhases = (
+				5E4F1FD27052EDD598FA41DF /* [CP] Check Pods Manifest.lock */,
 				E72A7BF81DFA664F0041731D /* Sources */,
 				E72A7BF91DFA664F0041731D /* Frameworks */,
 				E72A7BFA1DFA664F0041731D /* Resources */,
+				0D249D09EE1494DED9F913CC /* [CP] Embed Pods Frameworks */,
+				D4D25A878FC2C5131AEDFFF4 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -284,6 +325,7 @@
 				E7DCA5BF1DFE866B00BF7298 /* mnist_test_10.csv in Resources */,
 				E72A7BF31DFA664F0041731D /* Assets.xcassets in Resources */,
 				E72A7BF11DFA664F0041731D /* Main.storyboard in Resources */,
+				E7B5CAFB1E03994E00C0DBD5 /* mnist_train.csv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,6 +337,99 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0D249D09EE1494DED9F913CC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NeuralNetTests/Pods-NeuralNetTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		38C00B6390FF6FDCDBE2643A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5E4F1FD27052EDD598FA41DF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		91FCE1C234A8DB1A45BE028E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NeuralNet/Pods-NeuralNet-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BB67FAB6FB5BC73C65FD05DA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NeuralNet/Pods-NeuralNet-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D4D25A878FC2C5131AEDFFF4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NeuralNetTests/Pods-NeuralNetTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E72A7BE41DFA664F0041731D /* Sources */ = {
@@ -448,6 +583,7 @@
 		};
 		E72A7C061DFA664F0041731D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CB04CD12608637F30B68A4D6 /* Pods-NeuralNet.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -462,6 +598,7 @@
 		};
 		E72A7C071DFA664F0041731D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 09F71AF15EC6C99A41B1A8E9 /* Pods-NeuralNet.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -476,6 +613,7 @@
 		};
 		E72A7C091DFA664F0041731D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A79AB4F07DD8AF29639996C /* Pods-NeuralNetTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -491,6 +629,7 @@
 		};
 		E72A7C0A1DFA664F0041731D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DC22D47E224A96A20ED980FC /* Pods-NeuralNetTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
