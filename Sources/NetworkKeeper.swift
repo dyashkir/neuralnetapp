@@ -31,36 +31,38 @@ class NetworkKeeper {
       }
     }
 
-    let trainingCSV = readFile(path: "/Users/dyashkir/ios/GPSwift/train_test_data/mnist_train.csv")
+    func CSVNumbersDataParseLine(line: [String]) -> (Int, [Double]) {
+        let dd = line[1..<line.count].map { b in
+            return Double(b)!
+        }
+        let r = (Int(line[0])!, dd)
+        return r
+    }
 
-      var lines = trainingCSV.components(separatedBy: "\n").map( { a in
-          return a.components(separatedBy: ",")
-          })
-
-    lines = Array(lines[0..<(lines.count-1)])
-
+    func importCSV(csvstring : String) ->[SampleData]{
+        
+        var lines = csvstring.components(separatedBy: "\n").map( { a in
+            return a.components(separatedBy: ",")
+        })
+        
+        lines = Array(lines[0..<(lines.count-1)])
+        
+        return lines.map { a in
+            let line = CSVNumbersDataParseLine(line: a)
+            return SampleData(label: line.0, data: line.1)
+        }
+        
+    }
     
     func loadData(){
         
-        func mapper(recordValues : [String]) -> SampleData{
-            let vals : [Double] = recordValues[1..<recordValues.count].map({return Double($0)!})
-            return SampleData(label: Int(recordValues[0])!, data: vals)
-        }
-        
-        let trainingDataCSVPath = Bundle.main.path(forResource: "mnist_train", ofType: "csv")!
-        let trainingImporter = CSVImporter<SampleData>(path: trainingDataCSVPath)
+        let testCSV = readFile(path: "/Users/dyashkir/ios/NeuralNet/test_train_data/mnist_test_10.csv")
+        let trainingCSV = readFile(path: "/Users/dyashkir/ios/NeuralNet/test_train_data/mnist_train_100.csv")
         
         
-        trainingImporter.startImportingRecords( mapper: mapper).onFinish { importedRecords in
-                self.trainingData = importedRecords
-        }
+        self.trainingData = importCSV(csvstring: trainingCSV)
         
-        let testDataCSVPath = Bundle.main.path(forResource: "mnist_test_10", ofType: "csv")!
-        let testingImporter = CSVImporter<SampleData>(path: testDataCSVPath)
-        
-        testingImporter.startImportingRecords( mapper: mapper).onFinish { importedRecords in
-                self.testData = importedRecords
-        }
+        self.testData = importCSV(csvstring: testCSV)
     }
 
     
@@ -68,7 +70,7 @@ class NetworkKeeper {
         self.neuralNet = NeuralNet(nodeCountInput: 784, nodeCountHidden: 100, nodeCountOutput: 10, learningRate: 0.3)
     }
     
-    func train(updateFunc : (Double)->(), onFinish: (Double)->()) {
+    func train(updateFunc : (Double)->()) {
        
         if let trainingData = self.trainingData {
             
@@ -81,10 +83,9 @@ class NetworkKeeper {
             }
             
         }
-        
     }
     //test
-    func test(onFinish: (Double)->()){
+    func test()->Double{
         if let testData = self.testData{
             var scorecard = Array.init(repeating: 0.0, count: (testData.count))
             
@@ -98,7 +99,9 @@ class NetworkKeeper {
                 }
             }
             
-            onFinish(scorecard.reduce(0, +)/Double(scorecard.count))
+            return scorecard.reduce(0, +)/Double(scorecard.count)
+        }else{
+            return 0.0
         }
     }
 }

@@ -56,7 +56,7 @@ struct NeuralNet {
     
     //node activation
     func activation(_ x:Double) -> Double {
-        let sigmoid = 1.0/(1.0+Surge.exp(-x))
+        let sigmoid = 1.0/(1.0+pow(2.7182818, -x))
         return sigmoid
     }
     

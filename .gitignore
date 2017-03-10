@@ -69,3 +69,4 @@ NeuralNet/mnist_train.csv
 test_train_data
 
 Packages
+*.xcodeproj
