@@ -56,8 +56,8 @@ class NetworkKeeper {
     
     func loadData(){
         
-        let testCSV = readFile(path: "/Users/dyashkir/ios/NeuralNet/test_train_data/mnist_test_10.csv")
-        let trainingCSV = readFile(path: "/Users/dyashkir/ios/NeuralNet/test_train_data/mnist_train_100.csv")
+        let testCSV = readFile(path: "/Users/dyashkir/ios/NeuralNet/test_train_data/mnist_test.csv")
+        let trainingCSV = readFile(path: "/Users/dyashkir/ios/NeuralNet/test_train_data/mnist_train.csv")
         
         
         self.trainingData = importCSV(csvstring: trainingCSV)
